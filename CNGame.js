@@ -47,7 +47,7 @@ function CNGame(canvas) {
     },
     balls: [
       {yPos: 2, xPos: 3},
-      {yPos: 5, xPos: 7}
+      {yPos: 4, xPos: 6}
     ],
     board: {
       columns: 8,
