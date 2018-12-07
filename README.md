@@ -1,7 +1,7 @@
 # CNGames
 
-<script src="https://pwjablonski.github.io/CNGames/CNGame.js"></script>
+`<script src="https://pwjablonski.github.io/CNGames/CNGame.js"></script>`
 
-<div id="CNGame"></div>
+`<div id="CNGame"></div>`
 
-CNGame.apply(window);
+`CNGame.apply(window);`
