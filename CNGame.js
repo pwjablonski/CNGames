@@ -55,9 +55,9 @@ function CNGame(canvas) {
     },
     walls: [
       {yPos: 2, xPos: 2, direction: "vertical"},
-      {yPos: 2, xPos: 2, direction: "horizontal"},
+      {yPos: 1, xPos: 3, direction: "horizontal"},
       {yPos: 4, xPos: 7, direction: "horizontal"},
-      {yPos: 6, xPos: 6, direction: "vertical"}
+      {yPos: 5, xPos: 6, direction: "vertical"}
     ]
   };
   var solutionState = {
@@ -77,9 +77,9 @@ function CNGame(canvas) {
     },
     walls: [
       {yPos: 2, xPos: 2, direction: "vertical"},
+      {yPos: 1, xPos: 3, direction: "horizontal"},
       {yPos: 4, xPos: 7, direction: "horizontal"},
-      {yPos: 4, xPos: 7, direction: "horizontal"},
-      {yPos: 4, xPos: 7, direction: "vertical"}
+      {yPos: 5, xPos: 6, direction: "vertical"}
     ]
   };
 
