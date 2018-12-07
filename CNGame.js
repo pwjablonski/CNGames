@@ -306,7 +306,7 @@ function CNGame(canvas) {
     draw();
   }
   
-  function putBall() {
+  function putBallFunction() {
     state.balls.push({
       yPos: state.character.location.yPos,
       xPos: state.character.location.xPos
