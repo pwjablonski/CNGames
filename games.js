@@ -1,5 +1,6 @@
 var games = [
   {
+   name: "Game 1",
    initialState: 1,
    solutionState: 2,
   },  
