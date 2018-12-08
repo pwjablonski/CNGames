@@ -6,5 +6,5 @@ var games = [
 ]
 
 function loadGame(gameIndex){
-  return game[gameIndex];
+  return games[gameIndex];
 }
