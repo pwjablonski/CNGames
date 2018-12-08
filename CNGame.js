@@ -7,9 +7,12 @@ function CNGame(canvas) {
   canvas.width = 400;
   canvas.style.border = "2px solid black";
   document.querySelector('#CNGame').append(canvas);
-
+  
   // Initialize container to hold contols
   var controlsContainer = document.createElement('div');
+  controlsContainer.style.width = "400px";
+  controlsContainer.style.display = "flex";
+  controlsContainer.style.justifyContent = "space-between";
   document.querySelector('#CNGame').append(controlsContainer);
 
   // Initialize slider and append to controlsContainer
@@ -29,6 +32,20 @@ function CNGame(canvas) {
   var runButton = document.createElement('button');
   runButton.innerHTML = "Run";
   controlsContainer.append(runButton);
+  
+  // Game picker
+  var gameSelector = document.createElement('select');
+  gameSelector.id = "games";
+  controlsContainer.append(gameSelector);
+  addOptionsToGameSelector();
+  function addOptionsToGameSelector(){
+      games.forEach(function(game){
+          var gameOption = document.createElement('option');
+          gameOption.innerHTML = game.name;
+          gameOption.id = game.name;
+          gameSelector.append(gameOption);
+      });
+  }
 
   //INTIALIZE STATE
   // Initialize global variables
@@ -37,57 +54,15 @@ function CNGame(canvas) {
   var evaluationChain = [];
   var functionCount = 0;
   var ctx = canvas.getContext('2d');
-  var initialState = {
-    character: {
-      direction: "right",
-      location: {
-        yPos: 0,
-        xPos: 0,
-      }
-    },
-    balls: [
-      {yPos: 2, xPos: 3},
-      {yPos: 4, xPos: 6}
-    ],
-    board: {
-      columns: 8,
-      rows: 8,
-    },
-    walls: [
-      {yPos: 2, xPos: 2, direction: "vertical"},
-      {yPos: 1, xPos: 3, direction: "horizontal"},
-      {yPos: 3, xPos: 6, direction: "horizontal"},
-      {yPos: 4, xPos: 5, direction: "vertical"}
-    ]
-  };
-  var solutionState = {
-    character: {
-      direction: "right",
-      location: {
-        yPos: 0,
-        xPos: 0,
-      }
-    },
-    balls: [
-
-    ],
-    board: {
-      columns: 8,
-      rows: 8,
-    },
-    walls: [
-      {yPos: 2, xPos: 2, direction: "vertical"},
-      {yPos: 1, xPos: 3, direction: "horizontal"},
-      {yPos: 3, xPos: 6, direction: "horizontal"},
-      {yPos: 4, xPos: 5, direction: "vertical"}
-    ]
-  };
-
+  var gameNumber = 0;
+  var initialState = games[gameNumber].initialState;
+  var solutionState = games[gameNumber].solutionState;
+  
   // Create game state from initial state
   var state = JSON.parse(JSON.stringify(initialState));
 
   // Draw the canvas
-  draw();
+  draw();  
 
   // CREATE FUNCTIONS TO LISTEN TO USER INTERACTIONS
   speedometer.oninput = function () {
@@ -100,6 +75,13 @@ function CNGame(canvas) {
 
   runButton.onclick = function () {
     run();
+  };
+  
+  gameSelector.onchange = function () {
+    var index = gameSelector.selectedIndex;
+    initialState = games[index].initialState;
+    solutionState = games[index].solutionState;
+    reset();
   };
 
   // CREATE FUNCTIONS TO CONVERT INDEX TO PIXELS 
@@ -242,6 +224,7 @@ function CNGame(canvas) {
       }
     }
     alert("Winner");
+    reset();
   }
 
   function checkWall(yPos, xPos, direction) {
@@ -324,6 +307,7 @@ function CNGame(canvas) {
         return;
       } else {
         alert("No ball to pick up");
+        reset();
       }
     }
   }
