@@ -1,3 +1,10 @@
+var games = [
+  {
+   initialState: 1,
+   solutionState: 2,
+  },  
+]
+
 function loadGame(gameIndex){
-  console.log(gameIndex);
+  return game[gameIndex];
 }
