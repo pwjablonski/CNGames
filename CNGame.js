@@ -34,18 +34,18 @@ function CNGame(canvas) {
   controlsContainer.append(runButton);
   
   // Game picker
-  var gameSelector = document.createElement('select');
-  gameSelector.id = "games";
-  controlsContainer.append(gameSelector);
-  addOptionsToGameSelector();
-  function addOptionsToGameSelector(){
-      games.forEach(function(game){
-          var gameOption = document.createElement('option');
-          gameOption.innerHTML = game.name;
-          gameOption.id = game.name;
-          gameSelector.append(gameOption);
-      });
-  }
+//   var gameSelector = document.createElement('select');
+//   gameSelector.id = "games";
+//   controlsContainer.append(gameSelector);
+//   addOptionsToGameSelector();
+//   function addOptionsToGameSelector(){
+//       games.forEach(function(game){
+//           var gameOption = document.createElement('option');
+//           gameOption.innerHTML = game.name;
+//           gameOption.id = game.name;
+//           gameSelector.append(gameOption);
+//       });
+//   }
 
   //INTIALIZE STATE
   // Initialize global variables
@@ -54,9 +54,8 @@ function CNGame(canvas) {
   var evaluationChain = [];
   var functionCount = 0;
   var ctx = canvas.getContext('2d');
-  var gameNumber = 0;
-  var initialState = games[gameNumber].initialState;
-  var solutionState = games[gameNumber].solutionState;
+  var initialState = game.initialState;
+  var solutionState = game.solutionState;
   
   // Create game state from initial state
   var state = JSON.parse(JSON.stringify(initialState));
@@ -77,12 +76,12 @@ function CNGame(canvas) {
     run();
   };
   
-  gameSelector.onchange = function () {
-    var index = gameSelector.selectedIndex;
-    initialState = games[index].initialState;
-    solutionState = games[index].solutionState;
-    reset();
-  };
+//   gameSelector.onchange = function () {
+//     var index = gameSelector.selectedIndex;
+//     initialState = games[index].initialState;
+//     solutionState = games[index].solutionState;
+//     reset();
+//   };
 
   // CREATE FUNCTIONS TO CONVERT INDEX TO PIXELS 
   function calculateY(index) {
