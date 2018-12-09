@@ -1,17 +1,10 @@
 function CNGame(canvas) {
 
   //INTIALIZE SCREEN
-  // Initialize canvas and append to screen
+  // Initialize title
   var title = document.createElement('h1');
   title.innerHTML = game.name;
   document.querySelector('#CNGame').append(title);
-  
-  // Initialize canvas and append to screen
-  canvas = canvas || document.createElement('canvas');
-  canvas.height = 400;
-  canvas.width = 400;
-  canvas.style.border = "2px solid black";
-  document.querySelector('#CNGame').append(canvas);
   
   // Initialize container to hold contols
   var controlsContainer = document.createElement('div');
@@ -19,6 +12,13 @@ function CNGame(canvas) {
   controlsContainer.style.display = "flex";
   controlsContainer.style.justifyContent = "space-between";
   document.querySelector('#CNGame').append(controlsContainer);
+  
+  // Initialize canvas and append to screen
+  canvas = canvas || document.createElement('canvas');
+  canvas.height = 400;
+  canvas.width = 400;
+  canvas.style.border = "2px solid black";
+  document.querySelector('#CNGame').append(canvas);
 
   // Initialize slider and append to controlsContainer
   var speedometer = document.createElement('input');
