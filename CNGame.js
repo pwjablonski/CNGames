@@ -2,6 +2,11 @@ function CNGame(canvas) {
 
   //INTIALIZE SCREEN
   // Initialize canvas and append to screen
+  var title = document.createElement('h1');
+  title.innerHTML = game.name;
+  document.querySelector('#CNGame').append(title);
+  
+  // Initialize canvas and append to screen
   canvas = canvas || document.createElement('canvas');
   canvas.height = 400;
   canvas.width = 400;
