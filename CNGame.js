@@ -22,16 +22,16 @@ function CNGame(canvas) {
   speedometer.max = "-100";
   speedometer.value = "-600";
   controlsContainer.append(speedometer);
+  
+  // Initialize run button and append to controlsContainer
+  var runButton = document.createElement('button');
+  runButton.innerHTML = "Run";
+  controlsContainer.append(runButton);
 
   // Initialize reset button and append to controlsContainer
   var resetButton = document.createElement('button');
   resetButton.innerHTML = "Reset";
   controlsContainer.append(resetButton);
-
-  // Initialize run button and append to controlsContainer
-  var runButton = document.createElement('button');
-  runButton.innerHTML = "Run";
-  controlsContainer.append(runButton);
   
   // Game picker
 //   var gameSelector = document.createElement('select');
