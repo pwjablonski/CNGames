@@ -2,15 +2,15 @@ function CNGame(canvas) {
 
   //INTIALIZE SCREEN
   // Initialize title
+  var screen = document.querySelector('#CNGame');
+  screen.style.textAlign = "center";
+  
   var title = document.createElement('h1');
   title.innerHTML = game.name;
-  document.querySelector('#CNGame').append(title);
+  screen.append(title);
   
   // Initialize container to hold contols
   var controlsContainer = document.createElement('div');
-  controlsContainer.style.width = "400px";
-  controlsContainer.style.display = "flex";
-  controlsContainer.style.justifyContent = "space-between";
   document.querySelector('#CNGame').append(controlsContainer);
   
   // Initialize canvas and append to screen
